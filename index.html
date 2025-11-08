@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freshify - Simplifying Your Life</title>
+    <style>
+        /* Basic Reset and Variables */
+        :root {
+            --primary-color: #388e3c; /* Green from logo */
+            --secondary-color: #f5f5f5; /* Light grey background */
+            --highlight-color: #ff9800; /* Orange/Gold for highlight */
+            --text-dark: #333;
+            --text-light: #fff;
+            --font-family: Arial, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--secondary-color);
+        }
+
+        /* Header & Navigation */
+        .header {
+            background: var(--primary-color);
+            color: var(--text-light);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo img {
+            width: 40px; /* Adjust based on your logo file */
+            height: 40px;
+            margin-right: 10px;
+            background-color: #fff;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        .nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin-left: 20px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: url('https://via.placeholder.com/1400x500.png?text=Fresh+Meat+Background') no-repeat center center/cover;
+            color: var(--text-light);
+            text-align: center;
+            padding: 100px 20px;
+            background-color: rgba(0, 0, 0, 0.65); /* Darker overlay for better text contrast */
+            background-blend-mode: multiply;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px #000;
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            font-weight: bold;
+            color: var(--highlight-color); /* Highlight Delivery Message */
+            text-shadow: 1px 1px 3px #000;
+        }
+
+        .btn {
+            background-color: #e57373; /* Light red for contrast */
+            color: var(--text-light);
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background-color: #d32f2f;
+        }
+
+        /* Content Sections */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+            font-size: 2.2em;
+        }
+
+        /* Product Grid styles remain the same */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            background-color: var(--text-light);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 15px;
+        }
+
+        .product-info h3 {
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        /* Order Form Section */
+        #order-form-section {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        /* Contact info box within form */
+        .contact-box {
+            background-color: #e8f5e9; /* Light green background */
+            border: 1px solid var(--primary-color);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .contact-box p {
+            margin: 5px 0;
+            font-weight: 500;
+        }
+
+
+        .form-group button {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            border: none;
+            padding: 12px 25px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 18px;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        .form-group button:hover {
+            background-color: #2e7d32;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-dark);
+            color: var(--text-light);
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+            font-size: 0.95em;
+        }
+        
+        .footer p {
+            margin: 7px 0;
+        }
+        
+        .footer a {
+            color: var(--highlight-color);
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .nav {
+                margin-top: 10px;
+            }
+            .nav a {
+                margin-left: 0;
+                margin-right: 15px;
+            }
+            .hero h1 {
+                font-size: 2.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <img src="c:\Users\uk\Downloads\549118722_122102562044994431_1467505624780640718_n.jpg" alt="Freshify Logo">
+            Freshify
+        </div>
+        <nav class="nav">
+            <a href="#products">পণ্যসমূহ (Products)</a>
+            <a href="#order-form-section">অর্ডার করুন (Order Now)</a>
+            <a href="#contact-info">যোগাযোগ (Contact)</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Fresh & Premium Quality Meats</h1>
+        <p>
+            <br>জীবনের মান উন্নত করুন, আমাদের তাজা পণ্যের সাথে। (Freshness, Hygiene & Trust right to your doorstep.)
+        </p>
+        <a href="#order-form-section" class="btn">এখনই অর্ডার করুন (Order Now)</a>
+    </section>
+
+    <section id="products" class="container">
+        <h2>আমাদের পণ্যসমূহ (Our Products)</h2>
+        <div class="product-grid">
+
+            <div class="product-card">
+                <img src="c:\Users\uk\Downloads\571203525_122110612808994431_4884047290346449645_n.jpg" alt="Premium Quality Fresh Mutton">
+                <div class="product-info">
+                    <h3> খাসির মাংস (Premium Mutton)</h3>
+                    <p>1100 Taka (BDT/Kg)</p>
+                    <br>
+                    <a href="#order-form-section" class="btn">অর্ডার</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="c:\Users\uk\Downloads\571211306_122110546322994431_6411029120891780638_n.jpg" alt="Premium Quality Beef">
+                <div class="product-info">
+                    <h3> গরুর মাংস (Premium Beef-Bone in)</h3>
+                    <p>800 Taka (BDT/Kg)</p>
+                    <br>
+                    <a href="#order-form-section" class="btn">অর্ডার</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="c:\Users\uk\Downloads\574388722_122112454664994431_7839760070919134622_n.jpg" alt="Premium Quality Beef">
+                <div class="product-info">
+                    <h3> গরুর মাংস (Premium Beef-Bone Less)</h3>
+                    <p>950 Taka (BDT/Kg)</p>
+                    <br>
+                    <a href="#order-form-section" class="btn">অর্ডার</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="c:\Users\uk\Downloads\566231705_122109817112994431_6111674596452970584_n.jpg" alt="Sonali Chicken">
+                <div class="product-info">
+                    <h3>সোনালী চিকেন (Sonali Chicken)</h3>
+                    <p> 750 Taka (BDT/Kg)</p>
+                    <br>
+                    <a href="#order-form-section" class="btn">অর্ডার</a>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <img src="c:\Users\uk\Downloads\548192933_122103324206994431_950203284254901563_n.jpg" alt="Chicken Boneless Breast">
+                <div class="product-info">
+                    <h3>চিকেন বোনলেস ব্রেস্ট</h3>
+                    <p>480 Taka (BDT/Kg)</p>
+                    <br>
+                    <a href="#order-form-section" class="btn">অর্ডার</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="c:\Users\uk\Downloads\549248128_122103744440994431_8781602669436617205_n.jpg" alt="Premium Quality Fresh chicken liver">
+                <div class="product-info">
+                    <h3>মুরগির কলিজা (Premium Chicken Liver)</h3>
+                    <p>240 Taka (BDT/Kg)</p>
+                    <br>
+                    <a href="#order-form-section" class="btn">অর্ডার</a>
+                </div>
+            </div>
+
+             <div class="product-card">
+                <img src="c:\Users\uk\Downloads\548808027_122102868014994431_861309269940202494_n.jpg" alt="Premium Quality Fresh Chicken Drumstick">
+                <div class="product-info">
+                    <h3> চিকেন ড্রামস্টিক (Premium Chicken Drumstick-Skin Off)</h3>
+                    <p>450 Taka (BDT/Kg)</p>
+                    <br>
+                    <a href="#order-form-section" class="btn">অর্ডার</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="c:\Users\uk\Downloads\548644838_122103210452994431_8746085427750628273_n.jpg" alt="Premium Quality Fresh Chicken Wings">
+                <div class="product-info">
+                    <h3> চিকেন উইংস (Premium Chicken Wings)</h3>
+                    <p>450 Taka (BDT/Kg)</p>
+                    <br>
+                    <a href="#order-form-section" class="btn">অর্ডার</a>
+                </div>
+            </div>
+
+            
+
+        </div>
+    </section>
+
+    <section id="order-form-section" class="container">
+        <h2>🛒 ডেলিভারি সম্পর্কিত তথ্য দিয়ে অর্ডারটি নিশ্চিত করুন (Confirm the order by providing Delivery information)</h2>
+        
+        <div class="contact-box">
+            <p style="font-size:1.2em; color: #d32f2f;">দ্রুত যোগাযোগের জন্য:</p>
+            <p>☎️ কল বা হোয়াটসঅ্যাপ:+880 1888-789989</p>
+            <p>📧 ইমেইল: thefreshifyproducts@gmail.com</p>
+            <p style="font-weight: bold; color: var(--primary-color);">আমরা চট্রগ্রাম ডিভিশনে ফ্রি ডেলিভারি প্রদান করি!</p>
+        </div>
+
+        <form id="freshify-order-form">
+            <div class="form-group">
+                <label for="name">আপনার নাম (Your Name):</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">ফোন নম্বর (Phone Number):</label>
+                <input type="tel" id="phone" name="phone" placeholder="+880..." required>
+            </div>
+            <div class="form-group">
+                <label for="address">ডেলিভারি ঠিকানা (Delivery Address - Chattogram Division):</label>
+                <input type="text" id="address" name="address" required>
+            </div>
+            <div class="form-group">
+                <label for="product">পণ্য নির্বাচন করুন (Select Product):</label>
+                <select id="product" name="product" required>
+                    <option value="">--- একটি পণ্য নির্বাচন করুন ---</option>
+                    <optgroup label="Meat">
+                        <option value="Premium Quality Fresh Mutton">প্রিমিয়াম খাসির মাংস (Premium Mutton)</option>
+                        <option value="Premium Quality Beef">প্রিমিয়াম গরুর মাংস (Premium Quality Beef)</option>
+                    </optgroup>
+                    <optgroup label="Chicken Products">
+                        <option value="Whole Chicken (Live) - Broiler">Whole Chicken (Live) - Broiler</option>
+                        <option value="Whole Chicken (Skin Off) - Broiler">Whole Chicken (Skin Off) - Broiler</option>
+                        <option value="Whole Chicken - Sonali">Whole Chicken - Sonali</option>
+                        <option value="Chicken Boneless Breast">Chicken Boneless Breast</option>
+                        <option value="Chicken Wings">Chicken Wings</option>
+                        <option value="Chicken Drumstick">Chicken Drumstick</option>
+                        <option value="Chicken Maryland">Chicken Maryland</option>
+                        <option value="Chicken Liver & Gizzard">Chicken Liver & Gizzard</option>
+                        <option value="Chicken Thigh Bone In">Chicken Thigh Bone In</option>
+                        <option value="Chicken Fillet">Chicken Fillet</option>
+                        <option value="Chicken Thigh Boneless">Chicken Thigh Boneless</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="quantity">পরিমাণ (Quantity in Kg):</label>
+                <input type="number" id="quantity" name="quantity" min="0.5" step="0.5" value="1" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">অর্ডার নিশ্চিত করুন (Confirm Order)</button>
+            </div>
+        </form>
+    </section>
+
+    <footer id="contact-info" class="footer">
+        <p>Freshify: Simplifying Your Life | Fresh fish, Quality meat & daily groceries – all in one place!!!</p>
+        <p> 🚚 ফ্রি ডেলিভারি (Chattogram Division)</p>
+        <hr style="border-color: #555; width: 50%; margin: 10px auto;">
+        
+        <p style="font-size:1.1em; font-weight: bold;">যোগাযোগের সম্পূর্ণ তথ্য (Complete Contact Details):</p>
+        <p>☎️ ফোন (Call/WhatsApp): +880 1888-789989 </p>
+        <p>📧 ই-মেইল (E-mail): <a href="mailto:thefreshifyproducts@gmail.com">thefreshifyproducts@gmail.com</a></p>
+        <p>📍 ডেলিভারি এরিয়া: Chattogram Division (Halishahar, Chattogram)</p>
+        <p>📷 সোশ্যাল মিডিয়া (Instagram): <a href="https://instagram.com/thefreshifyproducts" target="_blank">instagram.com/thefreshifyproducts</a></p>
+        
+        <p style="margin-top: 15px;">&copy; 2025 Freshify. All Rights Reserved.</p>
+    </footer>
+   <script>
+        document.getElementById('freshify-order-form').addEventListener('submit', async function(e) {
+            e.preventDefault(); 
+            
+            // --- GOOGLE FORM CONFIGURATION ---
+            const GOOGLE_FORM_ACTION_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdpYcvDNSJrvQoM5-TfaZNTU625nkPe_BGywLLeJ4vwNf2uiQ/viewform?usp=sharing&ouid=101883172730952494797";
+            
+            // Entry IDs for your form fields:
+            const FIELD_ENTRY_ID = {
+                'name': 'entry.1491873105', 
+                'phone': 'entry.1504996963', 
+                'address': 'entry.390076846', 
+                'product': 'entry.1345917417', 
+                'quantity': 'entry.1485600870'  
+            };
+            // ------------------------------------
+
+            // Gather form data
+            const name = document.getElementById('name').value;
+            const address = document.getElementById('address').value;
+            const phone = document.getElementById('phone').value;
+            const product = document.getElementById('product').value;
+            const quantity = document.getElementById('quantity').value;
+
+            // Basic validation
+            if (!product || !name || !phone || !address || !quantity) {
+                alert("অনুগ্রহ করে সমস্ত প্রয়োজনীয় ঘর পূরণ করুন।");
+                return;
+            }
+
+            // --- DOUBLE CONFIRMATION POP-UP ---
+            const confirmationMessage = `
+                অর্ডার নিশ্চিত করুন?
+
+                আপনার অর্ডারের বিবরণ:
+                পণ্য: ${product}
+                পরিমাণ: ${quantity} Kg
+                নাম: ${name}
+                ফোন: ${phone}
+                ঠিকানা: ${address}
+
+                আপনি কি এই অর্ডারটি জমা দিতে চান?
+            `;
+
+            if (!confirm(confirmationMessage)) {
+                return; 
+            }
+            // --- END DOUBLE CONFIRMATION ---
+            
+            // --- SUBMISSION LOGIC STARTS HERE ---
+            
+            // Create form data for Google Forms submission
+            const formData = new FormData();
+            formData.append(FIELD_ENTRY_ID.name, name);
+            formData.append(FIELD_ENTRY_ID.phone, phone);
+            formData.append(FIELD_ENTRY_ID.address, address);
+            formData.append(FIELD_ENTRY_ID.product, product);
+            formData.append(FIELD_ENTRY_ID.quantity, quantity + ' Kg'); 
+            
+            // Display submission message (Loading)
+            const form = document.getElementById('freshify-order-form');
+            const formContainer = form.parentElement;
+            
+            form.style.display = 'none';
+            
+            const loadingMessage = document.createElement('div');
+            loadingMessage.className = 'confirmation-box';
+            loadingMessage.innerHTML = `<h3 style="color: #ff9800;">অর্ডার জমা হচ্ছে...</h3><p>দয়া করে অপেক্ষা করুন।</p>`;
+            formContainer.appendChild(loadingMessage);
+            
+            
+            // Function to introduce a delay
+            const delay = ms => new Promise(res => setTimeout(res, ms));
+
+            try {
+                // 1. Send data to Google Form in the background
+                await fetch(GOOGLE_FORM_ACTION_URL, {
+                    method: 'POST',
+                    body: new URLSearchParams(formData).toString(), 
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    mode: 'no-cors' 
+                });
+                
+                // 2. Wait for 3 seconds to show the 'Loading' message
+                await delay(3000); 
+
+                // 3. Success message on the website
+                loadingMessage.remove(); 
+                
+                const confirmationBox = document.createElement('div');
+                confirmationBox.className = 'confirmation-box';
+                confirmationBox.innerHTML = `
+                    <h3 style="font-size: 24px;">✅ অর্ডার সফলভাবে নিশ্চিত করা হয়েছে!</h3>
+                    <p style="font-size: 1.1em; color: var(--primary-color);">আপনার অর্ডারটি সফলভাবে আমাদের সিস্টেমে জমা দেওয়া হয়েছে।</p>
+                    <p>আপনার অর্ডার: ${product} (${quantity} Kg) </p>
+                    <p>দ্রুততম সময়ে আমরা আপনার সাথে যোগাযোগ করব। ধন্যবাদ।</p>
+                    <button type="button" onclick="location.reload();" style="background-color: #5cb85c; color: white; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; margin-top: 20px;">
+                        নতুন অর্ডার করুন বা পেজটি দেখুন
+                    </button>
+                `;
+                formContainer.appendChild(confirmationBox);
+
+            } catch (error) {
+                // Error message 
+                loadingMessage.remove(); 
+                const errorBox = document.createElement('div');
+                errorBox.className = 'confirmation-box';
+                errorBox.style.borderColor = '#d9534f';
+                errorBox.style.backgroundColor = '#f2dede';
+                errorBox.innerHTML = `
+                    <h3 style="color: #d9534f;">❌ ডেটা জমা দিতে সমস্যা হয়েছে!</h3>
+                    <p>দয়া করে আবার চেষ্টা করুন। যদি বারবার সমস্যা হয়, তবে সরাসরি +880 1888 789989 নম্বরে কল করুন।</p>
+                    <button type="button" onclick="location.reload();" style="background-color: #d9534f; color: white; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; margin-top: 20px;">
+                        আবার চেষ্টা করুন
+                    </button>
+                `;
+                formContainer.appendChild(errorBox);
+            }
+        });
+    </script>
+    
+
+</body>
+</html>r
